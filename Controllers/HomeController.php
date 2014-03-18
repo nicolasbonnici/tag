@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\tag\Controllers;
+namespace bundles\tag\Controllers;
 
 /**
  * Description of Tag HomeController
@@ -26,7 +26,7 @@ class TagController extends \Library\Core\Auth {
     public function readAction()
     {
         if (isset($this->_params['idtag']) && intval($this->_params['idtag']) > 0) {
-               $oTagModel = new \modules\backend\Models\Tag(intval($this->_params['idtag']), $this->oUser);
+               $oTagModel = new \bundles\backend\Models\Tag(intval($this->_params['idtag']), $this->oUser);
                $oTag = $oTagModel->read();
             if (! is_null($oTag) && $oTag->isLoaded()) {
                 $this->_view['oTag'] = $oTag;
@@ -39,7 +39,7 @@ class TagController extends \Library\Core\Auth {
     public function updateAction()
     {
         if (isset($this->_params['idtag']) && intval($this->_params['idtag']) > 0) {
-               $oTagModel = new \modules\backend\Models\Tag(intval($this->_params['idtag']), $this->oUser);
+               $oTagModel = new \bundles\backend\Models\Tag(intval($this->_params['idtag']), $this->oUser);
             $oTag = $oTagModel->getEntity();
             if (! is_null($oTag) && $oTag->isLoaded()) {
                 $this->_view['oTag'] = $oTag;
