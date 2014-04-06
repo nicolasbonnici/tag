@@ -27,11 +27,11 @@ class TagController extends \Library\Core\Auth
 
     public function readAction()
     {
-        if (isset($this->_params['idtag']) && intval($this->_params['idtag']) > 0) {
-            $oTagModel = new \bundles\backend\Models\Tag(intval($this->_params['idtag']), $this->oUser);
+        if (isset($this->aParams['idtag']) && intval($this->aParams['idtag']) > 0) {
+            $oTagModel = new \bundles\backend\Models\Tag(intval($this->aParams['idtag']), $this->oUser);
             $oTag = $oTagModel->read();
             if (! is_null($oTag) && $oTag->isLoaded()) {
-                $this->_view['oTag'] = $oTag;
+                $this->aView['oTag'] = $oTag;
             }
         }
         $this->render('tag/read.tpl');
@@ -39,11 +39,11 @@ class TagController extends \Library\Core\Auth
 
     public function updateAction()
     {
-        if (isset($this->_params['idtag']) && intval($this->_params['idtag']) > 0) {
-            $oTagModel = new \bundles\backend\Models\Tag(intval($this->_params['idtag']), $this->oUser);
+        if (isset($this->aParams['idtag']) && intval($this->aParams['idtag']) > 0) {
+            $oTagModel = new \bundles\backend\Models\Tag(intval($this->aParams['idtag']), $this->oUser);
             $oTag = $oTagModel->getEntity();
             if (! is_null($oTag) && $oTag->isLoaded()) {
-                $this->_view['oTag'] = $oTag;
+                $this->aView['oTag'] = $oTag;
             }
         }
         $this->render('tag/update.tpl');
@@ -51,8 +51,8 @@ class TagController extends \Library\Core\Auth
 
     public function deleteAction()
     {
-        if (isset($this->_params['pk']) && intval($this->_params['pk']) > 0) {
-            $this->_view['pk'] = $this->_params['pk'];
+        if (isset($this->aParams['pk']) && intval($this->aParams['pk']) > 0) {
+            $this->aView['pk'] = $this->aParams['pk'];
         }
         $this->render('tag/delete.tpl');
     }
