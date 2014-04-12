@@ -17,12 +17,12 @@ class TagController extends \Library\Core\Auth
 
     public function indexAction()
     {
-        $this->render('tag/index.tpl');
+        $this->oView->render($this->aView, 'tag/index.tpl');
     }
 
     public function createAction()
     {
-        $this->render('tag/create.tpl');
+        $this->oView->render($this->aView, 'tag/create.tpl');
     }
 
     public function readAction()
@@ -34,7 +34,7 @@ class TagController extends \Library\Core\Auth
                 $this->aView['oTag'] = $oTag;
             }
         }
-        $this->render('tag/read.tpl');
+        $this->oView->render($this->aView, 'tag/read.tpl');
     }
 
     public function updateAction()
@@ -46,7 +46,7 @@ class TagController extends \Library\Core\Auth
                 $this->aView['oTag'] = $oTag;
             }
         }
-        $this->render('tag/update.tpl');
+        $this->oView->render($this->aView, 'tag/update.tpl');
     }
 
     public function deleteAction()
@@ -54,7 +54,7 @@ class TagController extends \Library\Core\Auth
         if (isset($this->aParams['pk']) && intval($this->aParams['pk']) > 0) {
             $this->aView['pk'] = $this->aParams['pk'];
         }
-        $this->render('tag/delete.tpl');
+        $this->oView->render($this->aView, 'tag/delete.tpl');
     }
 }
 
